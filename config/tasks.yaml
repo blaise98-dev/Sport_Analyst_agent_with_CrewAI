@@ -1,0 +1,69 @@
+---
+collect_basketball_data:
+  description: 'Collect comprehensive basketball data based on one of the specified parameters:
+    {league}, {team}, {player}, and {game}. Access FIBA APIs and French basketball
+    websites to gather statistics, game data, player performance metrics, team standings,
+    and match results. Focus on the FIBA LiveStats data and French club information
+    from both men''s and women''s leagues.'
+  expected_output: Complete basketball dataset including player statistics (points,
+    rebounds, assists, shooting percentages), team performance metrics, game results,
+    league standings, and any relevant performance indicators. Data should be structured
+    and ready for analysis.
+  agent: basketball_data_collector
+generate_performance_analysis:
+  description: Analyze the collected basketball data to identify performance patterns,
+    strengths, weaknesses, and trends. Provide 3-5 actionable recommendations for
+    improving {team} operations, {player} performance, or {league} competitiveness.
+    Focus on practical insights that coaches, players, and management can implement.
+  expected_output: A clear list of 3-5 basketball recommendations in bullet points.
+    Each recommendation should include what to improve, why it's important, and which
+    statistics support this recommendation. Use simple basketball terminology that
+    coaches and players can understand.
+  agent: basketball_operations_consultant
+  context:
+  - collect_basketball_data
+create_statistical_summary:
+  description: Create a comprehensive summary table of key basketball performance
+    indicators from the collected data. Include metrics like scoring averages, shooting
+    percentages, rebounds, assists, team rankings, and player comparisons. Present
+    data in a basketball-friendly format with clear explanations of what each metric
+    means for team or player performance.
+  expected_output: A clean markdown table showing key basketball metrics with user-friendly
+    labels. Include brief explanations of what each statistic means for basketball
+    performance. Format as organized tables that are easy to read and interpret by
+    coaches and management.
+  agent: basketball_intelligence_analyst
+  context:
+  - collect_basketball_data
+design_visualization_recommendations:
+  description: 'Based on the basketball performance data, create specific visualization
+    recommendations that will help coaches and analysts understand player and team
+    performance patterns. Focus on: 1) Player scoring comparisons, 2) Shooting efficiency
+    analysis, 3) Team performance trends, 4) Player positioning and roles, 5) Season/game
+    progression charts. Provide detailed descriptions of what each chart reveals for
+    tactical decisions.'
+  expected_output: 'Detailed analysis of 5 specific charts that should be created:
+    1) Scoring comparison bar chart - shows top scorers and efficiency, 2) Shooting
+    percentage scatter plot - reveals player accuracy and volume, 3) Team performance
+    radar chart - multi-dimensional team comparison, 4) Performance trend line charts
+    - season progression and consistency, 5) Player role analysis - position-specific
+    metrics. For each chart, explain what coaches can learn and how to apply the insights.'
+  agent: basketball_data_visualization_expert
+  context:
+  - collect_basketball_data
+compile_basketball_intelligence_report:
+  description: >
+    Combine all analysis into a comprehensive basketball intelligence report for coaches, management, and team stakeholders. 
+    Structure the report with clear sections covering Executive Summary, Key Performance Metrics, Performance Analysis, 
+    Tactical Insights, and Actionable Recommendations. Focus on basketball impact and practical insights for {league}, 
+    {team}, or {player} improvement.
+  expected_output: >
+    Return ONLY the markdown formatted basketball intelligence report without any wrapper text, JSON, or additional commentary. 
+    The report should start with the title and include these sections:
+    1) Executive Summary (key findings)
+    2) Performance Statistics (statistical summary table) 
+    3) Performance Analysis (strengths, weaknesses, trends)
+    4) Tactical Recommendations (actionable improvement suggestions)
+    5) Data Visualization Guide (chart recommendations and interpretations)
+    Use professional basketball language throughout.
+  agent: basketball_intelligence_analyst
