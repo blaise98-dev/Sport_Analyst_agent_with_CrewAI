@@ -23,7 +23,7 @@ build/
 .idea/
 
 # Data files (may contain sensitive info)
-data/*.csv
+# data/*.csv
 
 # Jupyter
 .ipynb_checkpoints/
